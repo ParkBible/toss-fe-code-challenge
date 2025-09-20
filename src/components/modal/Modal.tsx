@@ -3,7 +3,6 @@ import { useEffect, useId, useRef, useState } from 'react';
 interface ModalProps {
   closeForm: () => void;
   onSubmit: (value: string) => void;
-  onExternalClick: (event: MouseEvent) => void;
 }
 
 export default function Modal({ closeForm, onSubmit }: ModalProps) {
@@ -14,7 +13,12 @@ export default function Modal({ closeForm, onSubmit }: ModalProps) {
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden';
     titleRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
