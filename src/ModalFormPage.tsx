@@ -29,8 +29,8 @@ const ModalFormPage = () => {
   }, [isOpen]);
 
   return (
-    <>
-      <div className="flex gap-4">
+    <div className="flex items-center">
+      <div className="flex flex-col gap-4 h-[2000px] justify-between">
         <button
           ref={modalButtonRef}
           type="button"
@@ -41,7 +41,6 @@ const ModalFormPage = () => {
           모달 열기
         </button>
         <button
-          ref={modalButtonRef}
           type="button"
           className="bg-blue-500 text-white p-2 rounded"
           onClick={onTest}
@@ -57,7 +56,7 @@ const ModalFormPage = () => {
           onSubmit={submitForm}
         />
       )}
-    </>
+    </div>
   );
 };
 
